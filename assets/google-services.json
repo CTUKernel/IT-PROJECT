@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "840672276920",
+    "project_id": "it-project-c157b",
+    "storage_bucket": "it-project-c157b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840672276920:android:dff71605addc19e833df4d",
+        "android_client_info": {
+          "package_name": "com.ctu.daca"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZcKdHG7CtB2wTjEA6WcQ70zw0iNOxtf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

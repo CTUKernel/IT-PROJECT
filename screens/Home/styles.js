@@ -18,13 +18,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   title: {
+    fontFamily: 'NettoBlack',
     fontSize: 30,
-    fontWeight: 'bold',
   },
   description: {
-    fontSize: 16,
+    fontSize: 18,
+    fontFamily: 'NettoRegular',
     color: 'gray',
     marginTop: 10,
+    
   },
   container2: {
     flex: 3,
@@ -43,20 +45,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9', // Màu nền của khung
   },
   imagePlaceholder: {
-    width: 70,
-    height: 70,
+    width: 100,
+    height: 100,
     borderRadius: 10, // Bo tròn hình nhỏ
   },
   imagePlaceholderText: {
-    fontSize: 15,
+    fontSize: 18,
+    fontFamily: 'NettoRegular',
     color: 'gray',
     textAlign: 'center',
-    marginBottom : 10,
-  },
-  buttonText: {
-    color: '#FFFFFF', // Màu chữ
-    fontSize: 16,
-    fontWeight: 'bold',
+    marginBottom : 5,
   },
   captureButton: {
     backgroundColor: '#FFEFE0', // Màu nền nút chụp hình
@@ -73,8 +71,8 @@ const styles = StyleSheet.create({
   },
   captureButtonText: {
     color: '#5295BA', // Màu chữ của nút chụp hình
-    fontSize: 16,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontFamily: 'NettoBold',
     marginLeft: 10, // Khoảng cách giữa hình ảnh và chữ
   },
   captureButtonIcon: {
@@ -96,9 +94,9 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   buttonText: {
-    color: '#ffffff', // Màu chữ của nút chụp hình
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#ffffff', // Màu chữ của nút nkq
+    fontSize: 18,
+    fontFamily: 'NettoBold',
   },
   button1: {
     backgroundColor: '#ffffff', // Màu nền nút
@@ -112,9 +110,9 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   buttonText1: {
-    color: '#5295BA', // Màu chữ của nút chụp hình
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#5295BA', // Màu chữ của nút ls
+    fontSize: 18,
+    fontFamily: 'NettoBold',
   },
   separatorContainer: {
     flexDirection: 'row',
@@ -128,11 +126,34 @@ const styles = StyleSheet.create({
     backgroundColor: 'gray',
   },
   separatorText: {
-    fontSize: 14,
+    fontSize: 16,
+    fontFamily: 'NettoRegular',
     color: 'gray',
     marginHorizontal: 10,
   },
-
+  imageWrapper: {
+    position: 'relative',
+  },
+  removeButton: {
+    position: 'absolute',
+    top: -5, // Điều chỉnh khoảng cách từ trên cùng của ảnh
+    right: -5, // Điều chỉnh khoảng cách từ bên phải của ảnh
+    backgroundColor: 'white',
+    borderRadius: 20, // Bo tròn hơn
+    borderWidth : 0.1,
+    width: 30, // Kích thước của nút
+    height: 30, // Kích thước của nút
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 2,
+  },
+  removeButtonIcon: {
+    width: 20,
+    height: 20,
+  },
+  imagePlaceholderWrapper: {
+    alignItems: 'center',
+  },
 });
 
 export default styles;

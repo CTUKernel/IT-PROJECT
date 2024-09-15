@@ -15,7 +15,8 @@ function ViewHistory() {
                 <View key={rowIndex} style={styles.row}>
                 {row.map((cell, cellIndex) => (
                     <View key={cellIndex} style={[styles.cell, styles[`cell${cellIndex + 1}`]]}>
-                    <Text style={[styles.text, rowIndex === 0 ? styles.headerText : styles.rowText]}>{cell}</Text>
+                    <Text style={[styles.text, rowIndex === 0 ? styles.headerText : 
+                        styles.rowText]}>{cell}</Text>
                     </View>
                 ))}
                 </View>
