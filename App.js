@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/Home/HomeScreen";
 import ResultScreen from "./screens/receiveResult/receiveResult";
 import Questionnaire from "./screens/questionaire/questionaire";
+import ReceiveResult from "./screens/receiveResult/receiveResult";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -46,21 +47,20 @@ const App = () => {
     return null;
   }
   return (
-    // <NavigationContainer>
-    //   <Stack.Navigator initialRouteName="Home">
-    //     <Stack.Screen
-    //       name="Home"
-    //       component={HomeScreen}
-    //       options={{ headerShown: false }} // Ẩn thanh tiêu đề cho màn hình Home
-    //     />
-    //     <Stack.Screen
-    //       name="Result"
-    //       component={ResultScreen}
-    //       options={{ headerShown: false }} // Ẩn thanh tiêu đề cho màn hình Result
-    //     />
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    <Questionnaire />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Result"
+          component={ResultScreen}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
