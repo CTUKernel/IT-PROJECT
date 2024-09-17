@@ -1,74 +1,73 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   Container: {
-    flex: 1,
-    alignItems: 'center',
+    flexGrow: 1,
+    alignItems: "center",
   },
   OpenLine: {
     width: 250,
-    fontFamily: 'NettoBlack',
+    fontFamily: "NettoBlack",
     fontSize: 30,
-    textAlign: 'center',
+    textAlign: "center",
     marginTop: 80,
     marginBottom: 20,
   },
   tableContainer: {
-    width: 350,
-    borderWidth: 5, 
-    borderColor: '#86c8eb', 
+    width: 390,
+    borderWidth: 5,
+    borderColor: "#86c8eb",
     borderRadius: 25,
+    padding: 10,
   },
   row: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#86c8eb',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 8,
   },
-  cell: {
-    flex: 1,
-    padding: 8,
-    borderRightWidth: 1,
-    borderRightColor: '#86c8eb',
-    justifyContent: 'center',
-    alignItems: 'center',
+  headerDate: {
+    width: 120,
+    textAlign: "center",
+    fontFamily: "NettoBlack",
+    fontSize: 22,
   },
-  cell1: {
-    flex: 1,
+  headerResult: {
+    width: 200,
+    textAlign: "center",
+    right: 10,
+    fontFamily: "NettoBlack",
+    fontSize: 22,
   },
-  cell2: {
-    flex: 2,
-  },
-  cell3: {
-    flex: 2.5,
-  },
-  text: {
-    textAlign: 'center',
+  dataDate: {
+    width: 140,
+    textAlign: "center",
+    fontFamily: "NettoRegular",
     fontSize: 20,
   },
-  headerText: {
-    fontFamily: 'NettoBlack',
-  },
-  rowText: {
-    fontFamily: 'NettoRegular',
+  dataResult: {
+    width: 200,
+    textAlign: "center",
+    right: 10,
+    fontFamily: "NettoRegular",
+    fontSize: 20,
   },
   buttonContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: -250,
-    marginBottom: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10,
+    marginTop: 10,
   },
   button: {
-    backgroundColor: '#86c8eb',
+    backgroundColor: "#86c8eb",
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 8,
   },
   buttonText: {
-    color: '#ffefe0',
+    color: "#ffefe0",
     fontSize: 20,
-    fontFamily: 'NettoBlack',
-    fontWeight: 'bold',
+    fontFamily: "NettoBlack",
+    fontWeight: "bold",
   },
 });
 

@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
   ResultCell: {
     width: 350,
     height: 350,
-    backgroundColor: "#eff",
     borderWidth: 5,
     borderColor: "#86c8eb",
     borderRadius: 25,

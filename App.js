@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/Home/HomeScreen";
-import ResultScreen from "./screens/receiveResult/receiveResult";
-import Questionnaire from "./screens/questionaire/questionaire";
-import ReceiveResult from "./screens/receiveResult/receiveResult";
+import { ReceiveResult } from "./screens/receiveResult/receiveResult";
+import ViewHistory from "./screens/viewHistory/viewHistory";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -56,7 +55,12 @@ const App = () => {
         />
         <Stack.Screen
           name="Result"
-          component={ResultScreen}
+          component={ReceiveResult}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="History"
+          component={ViewHistory}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

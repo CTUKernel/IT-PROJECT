@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Text, View, Pressable, ScrollView, Image } from "react-native";
 import styles from "./receiveResultStyles";
 
-function ReceiveResult() {
+export async function processResponse() {
+  try {
+    const responseData = await AsyncStorage.getItem("responseData");
+    if (responseData) {
+      const parsedData = JSON.parse(responseData);
+      if (parsedData && parsedData.data && parsedData.data.detected_image_url) {
+        return parsedData.data.detected_image_url;
+      }
+    }
+    console.log("No image URL found in storage");
+    return null;
+  } catch (error) {
+    console.error("Error fetching data from AsyncStorage:", error);
+    return null;
+  }
+}
+
+export function ReceiveResult() {
   const handlePress = () => {
     alert("Button Pressed!");
   };
+  const [url, setUrl] = useState(null);
+
+  useEffect(() => {
+    const getImageUrl = async () => {
+      const imageUrl = await processResponse();
+      setUrl(imageUrl);
+    };
+    getImageUrl();
+  }, []);
 
   return (
     <View style={styles.Container}>
@@ -13,12 +40,11 @@ function ReceiveResult() {
         <Text style={styles.OpenLine}>Đây là kết quả chẩn đoán của bạn</Text>
 
         <View style={styles.ResultCell}>
-          <Image
-            source={{
-              uri: "https://firebasestorage.googleapis.com/v0/b/daca-96582.appspot.com/o/result%2Fdetected_img%2F82cfb852-8045-4cb6-90ef-46a9e3adee9d.jpg?alt=media",
-            }}
-            style={styles.resultImage} // Define the resultImage style in your stylesheet
-          />
+          {url ? (
+            <Image source={{ uri: url }} style={styles.resultImage} />
+          ) : (
+            <Text>No image available</Text>
+          )}
         </View>
 
         <Text style={styles.EndLine}>
@@ -28,7 +54,7 @@ function ReceiveResult() {
           <Pressable
             style={({ pressed }) => [
               styles.button,
-              { backgroundColor: pressed ? "#5195ba" : "#86c8eb" }, // Thay đổi màu khi nhấn
+              { backgroundColor: pressed ? "#5195ba" : "#86c8eb" },
             ]}
             onPress={handlePress}
           >
@@ -39,5 +65,3 @@ function ReceiveResult() {
     </View>
   );
 }
-
-export default ReceiveResult;
