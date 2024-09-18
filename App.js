@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./screens/Home/HomeScreen";
 import { ReceiveResult } from "./screens/receiveResult/receiveResult";
 import ViewHistory from "./screens/viewHistory/viewHistory";
+import Questionare from "./screens/questionaire/questionaire";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
@@ -61,6 +62,11 @@ const App = () => {
         <Stack.Screen
           name="History"
           component={ViewHistory}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="takeQuiz"
+          component={Questionare}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -20,10 +20,7 @@ export async function processResponse() {
   }
 }
 
-export function ReceiveResult() {
-  const handlePress = () => {
-    alert("Button Pressed!");
-  };
+export function ReceiveResult({ navigation }) {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
@@ -56,7 +53,7 @@ export function ReceiveResult() {
               styles.button,
               { backgroundColor: pressed ? "#5195ba" : "#86c8eb" },
             ]}
-            onPress={handlePress}
+            onPress={() => navigation.navigate("takeQuiz")}
           >
             <Text style={styles.buttonText}>Làm Quiz</Text>
           </Pressable>
