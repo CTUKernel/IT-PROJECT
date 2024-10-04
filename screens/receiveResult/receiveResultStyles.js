@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   ResultCell: {
     width: 350,
     height: 350,
-    borderWidth: 5,
+    borderWidth: 4,
     borderColor: "#86c8eb",
     borderRadius: 25,
     padding: 10,
@@ -82,6 +82,27 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "NettoBlack",
     fontWeight: "bold",
+  },
+  legendContainer: {
+    marginVertical: 20,
+    paddingHorizontal: 10,
+  },
+  legendItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  legendColorBox: {
+    width: 20,
+    height: 20,
+    marginRight: 10,
+    borderWidth: 2, // Border width for the square
+    borderColor: "#FF6347", // Default border color
+  },
+  legendLabel: {
+    fontSize: 16,
+    fontFamily: "NettoBlack",
+    color: "#333",
   },
 });
 

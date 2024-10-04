@@ -83,33 +83,28 @@ const HomeScreen = ({ navigation }) => {
       try {
         const imageUrl = await uploadImage(imageUri);
 
-        // Gửi yêu cầu POST đến backend với định dạng { "image_url": "<url>" }
-        const response = await fetch("http://35.198.247.105/detect/", {
+        const response = await fetch("http://34.143.239.0/detect/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            image_url: imageUrl, // Định dạng đúng cho backend
+            image_url: imageUrl,
           }),
         });
 
-        const responseBody = await response.text();
+        const responseBody = await response.json(); // Dùng .json() để parse phản hồi
 
-        // Lưu nội dung phản hồi vào AsyncStorage
-        await AsyncStorage.setItem("responseData", responseBody);
+        // Lưu phản hồi JSON trực tiếp vào AsyncStorage
+        await AsyncStorage.setItem(
+          "responseData",
+          JSON.stringify(responseBody)
+        );
 
-        // Xử lý nội dung phản hồi từ biến lưu trữ
-        const responseData = JSON.parse(responseBody);
-
-        await LoadHistory.saveResultToHistory(responseData);
-        await processResponse(responseData);
-        // Thêm console.log để kiểm tra trạng thái response
         console.log("Response status:", response.status);
         console.log("Response body:", responseBody);
 
         if (response.ok) {
-          // Điều hướng đến màn hình kết quả mà không hiển thị trạng thái thành công
           navigation.navigate("Result");
         } else {
           setResponseStatus(`Lỗi từ server: ${response.status}`);
@@ -119,7 +114,7 @@ const HomeScreen = ({ navigation }) => {
           );
         }
       } catch (error) {
-        console.log("Error:", error); // Log lỗi khi có sự cố xảy ra
+        console.log("Error:", error);
         setResponseStatus("Có lỗi xảy ra trong quá trình tải ảnh.");
         Alert.alert(
           "Xử lý thất bại",

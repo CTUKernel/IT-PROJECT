@@ -1,20 +1,24 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { View, Text } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
-import { createStackNavigator } from '@react-navigation/stack';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import styles from './logoStyles';
+import React, { useEffect, useState, useRef } from "react";
+import { View, Text } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+import { createStackNavigator } from "@react-navigation/stack";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from "react-native-reanimated";
+import styles from "./logoStyles";
 
 SplashScreen.preventAutoHideAsync();
 
 const Stack = createStackNavigator();
 
 const images = [
-  require('../../assets/images/blackhead.png'),
-  require('../../assets/images/nodule.png'),
-  require('../../assets/images/papule.png'),
-  require('../../assets/images/pustule.png'),
-  require('../../assets/images/whitehead.png'),
+  require("../../assets/images/blackhead.png"),
+  require("../../assets/images/nodule.png"),
+  require("../../assets/images/papule.png"),
+  require("../../assets/images/pustule.png"),
+  require("../../assets/images/whitehead.png"),
 ];
 
 const imageStyles = [
@@ -27,11 +31,11 @@ const imageStyles = [
 
 function Logo({ navigation }) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
-  const fadeAnims = images.map(() => useSharedValue(1)); 
+  const fadeAnims = images.map(() => useSharedValue(1));
 
   useEffect(() => {
     const loadAssets = async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoadingComplete(true);
     };
 
@@ -48,8 +52,8 @@ function Logo({ navigation }) {
 
       setTimeout(() => {
         SplashScreen.hideAsync();
-        navigation.replace('ReceiveResult');
-      }, images.length * 500); 
+        navigation.replace("Home");
+      }, images.length * 500);
     }
   }, [isLoadingComplete, navigation]);
 
@@ -74,7 +78,6 @@ function Logo({ navigation }) {
       <Text style={styles.nameDes}>Detect And Classify Acne</Text>
     </View>
   );
-  }
-  
+}
 
 export default Logo;

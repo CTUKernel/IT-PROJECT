@@ -5,9 +5,10 @@ import HomeScreen from "./screens/Home/HomeScreen";
 import { ReceiveResult } from "./screens/receiveResult/receiveResult";
 import ViewHistory from "./screens/viewHistory/viewHistory";
 import Questionare from "./screens/questionaire/questionaire";
+import Logo from "./screens/logo/logo";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-
+import FullScreenImage from "./screens/receiveResult/FullScreenImage";
 SplashScreen.preventAutoHideAsync();
 
 const loadFonts = () => {
@@ -48,7 +49,12 @@ const App = () => {
   }
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Logo">
+        <Stack.Screen
+          name="Splash"
+          component={Logo}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Home"
           component={HomeScreen}
@@ -67,6 +73,11 @@ const App = () => {
         <Stack.Screen
           name="takeQuiz"
           component={Questionare}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="FullScreenImage"
+          component={FullScreenImage}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
