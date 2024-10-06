@@ -93,17 +93,16 @@ const HomeScreen = ({ navigation }) => {
           }),
         });
 
-        const responseBody = await response.json(); // Dùng .json() để parse phản hồi
-
-        // Lưu phản hồi JSON trực tiếp vào AsyncStorage
-        await AsyncStorage.setItem(
-          "responseData",
-          JSON.stringify(responseBody)
-        );
-
+        const responseBody = await response.text();
+        // Lưu nội dung phản hồi vào AsyncStorage
+        await AsyncStorage.setItem("responseData", responseBody);
+        // Xử lý nội dung phản hồi từ biến lưu trữ
+        const responseData = JSON.parse(responseBody);
+        await LoadHistory.saveResultToHistory(responseData);
+        await processResponse(responseData);
+        // Thêm console.log để kiểm tra trạng thái response
         console.log("Response status:", response.status);
         console.log("Response body:", responseBody);
-
         if (response.ok) {
           navigation.navigate("Result");
         } else {
